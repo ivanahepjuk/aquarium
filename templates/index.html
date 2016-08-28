@@ -7,45 +7,76 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <style>
+  body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    color: #ffffff;
+}
+h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: #eeeeee;
+}
+  .bg-1 {
+      background-color: #bdbdbd;
+      color: #bdbdbd;
+  }
+
+
+  .container-fluid {
+      background-color: #222222;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      padding-left: 70px;
+  }
+  .jumbotron {
+      background-color: #111111;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      padding-left: 70px;
+  }
+
+
+  </style>
 </head>
+
+
 <body>
 
-<div class="jumbotron text-center">
-   <h1>"AQUARIUM"</h1>
-   <p>Lets stalk those fish es.. by using responsive web:)</p>
-</div>
+<div class="container-fluid">
 
-<div class="container">
   <div class="row">
-    <div class="col-sm-4">
-      <h3>Led 1</h3>
-      {% if pins[23].state == true %}
-        <div class="row"><div class="col-md-2"><a href="/23/off" class="btn btn-sm btn-default" role="button">Turn off</a></div></div>
-        Led 23 is currently <strong>on</strong>
-      {% else %}
-        <div class="row"><div class="col-md-2"><a href="/23/on" class="btn btn-sm btn-primary" role="button">Turn on</a></div></div>
-        Led 23 is currently <strong>off</strong>
-   {% endif %}
+    <div class="col-sm-2" >
+  <h3>aquarium:</h3>
 
+        {% if pins[23].state == true %}
+          <div class="row">   Led 23 is currently <strong>on</strong>
+          <a href="/23/off" class="btn btn-xs btn-default " role="button">Turn off</a></div>
 
+        {% else %}
+          <div class="row">   Led 23 is currently <strong>off</strong>
+          <a href="/23/on" class="btn btn-xs btn-default " role="button">Turn on</a></div>
+
+        {% endif %}
+
+        <p></p>
+
+        {% if pins[24].state == true %}
+          <div class="row"> Led 24 is currently <strong>on</strong>
+          <a href="/24/off" class="btn btn-xs btn-default text-center" role="button">Turn off</a></div>
+
+        {% else %}
+            <div class="row">  Led 24 is currently <strong>off</strong>
+          <a href="/24/on" class="btn btn-xs btn-default" role="button">Turn on</a></div>
+        {% endif %}
 
 
     </div>
-    <div class="col-sm-4">
-      <h1>Video Streaming Demonstration</h1>
-      <img src="{{ url_for('video_feed') }}">
-    </div>
-    <div class="col-sm-4">
- <h3>Led 2</h3>
-      {% if pins[24].state == true %}
-        <div class="row"><div class="col-md-2"><a href="/24/off" class="btn btn-sm btn-default" role="button">Turn off</a></div></div>
-        Led 24 is currently <strong>on</strong>
-      {% else %}
-        <div class="row"><div class="col-md-2"><a href="/24/on" class="btn btn-sm btn-primary" role="button">Turn on</a></div></div>
-        Led 23 is currently <strong>off</strong>
-      {% endif %}
-
-
+    <div class="col-sm-8">
+        <img src="{{ url_for('video_feed') }}" class="img-responsive" style="display:inline" alt="Aquarium_stream" width="960" height="720">
     </div>
   </div>
 </div>
