@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Aquarium </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+   <h1>"AQUARIUM"</h1>
+   <p>Lets stalk those fish es.. by using responsive web:)</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Led 1</h3>
+      {% if pins[23].state == true %}
+        <div class="row"><div class="col-md-2"><a href="/23/off" class="btn btn-sm btn-default" role="button">Turn off</a></div></div>
+        Led 23 is currently <strong>on</strong>
+      {% else %}
+        <div class="row"><div class="col-md-2"><a href="/23/on" class="btn btn-sm btn-primary" role="button">Turn on</a></div></div>
+        Led 23 is currently <strong>off</strong>
+   {% endif %}
+
+
+
+
+    </div>
+    <div class="col-sm-4">
+      <h1>Video Streaming Demonstration</h1>
+      <img src="{{ url_for('video_feed') }}">
+    </div>
+    <div class="col-sm-4">
+ <h3>Led 2</h3>
+      {% if pins[24].state == true %}
+        <div class="row"><div class="col-md-2"><a href="/24/off" class="btn btn-sm btn-default" role="button">Turn off</a></div></div>
+        Led 24 is currently <strong>on</strong>
+      {% else %}
+        <div class="row"><div class="col-md-2"><a href="/24/on" class="btn btn-sm btn-primary" role="button">Turn on</a></div></div>
+        Led 23 is currently <strong>off</strong>
+      {% endif %}
+
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
